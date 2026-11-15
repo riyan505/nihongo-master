@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#b83232">
+  <meta name="description" content="Nihongo Master — belajar bahasa Jepang dari nol.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <title>Nihongo Master</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">日</span><div><b>NIHONGO MASTER</b><small>Belajar Jepang dari nol</small></div></div>
+    <button id="installBtn" class="install-btn" hidden>＋ Pasang</button>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="hero">
+        <div><span class="eyebrow">KONNICHIWA!</span><h1>Mulai perjalanan<br>bahasa Jepangmu.</h1>
+        <p>Belajar sedikit demi sedikit. Konsisten setiap hari.</p></div>
+        <div class="hero-jp">日本語</div>
+      </div>
+      <div class="stats">
+        <article><strong id="learnedCount">0</strong><span>Kosakata dipelajari</span></article>
+        <article><strong id="knownCount">0</strong><span>Sudah dikuasai</span></article>
+        <article><strong id="streakCount">0</strong><span>Hari belajar</span></article>
+      </div>
+      <div class="section-head"><div><span class="eyebrow">LANJUTKAN BELAJAR</span><h2>Materi hari ini</h2></div></div>
+      <div class="lesson-grid">
+        <button class="lesson-card red" data-go="flashcards"><span>🃏</span><b>Flashcard Kotoba</b><small>Hafalkan kosakata</small><i>Mulai belajar →</i></button>
+        <button class="lesson-card cream" data-go="kanji"><span>漢</span><b>Belajar Kanji</b><small>Bentuk, arti, bacaan</small><i>Lihat materi →</i></button>
+        <button class="lesson-card blue" data-go="kana"><span>あ</span><b>Hiragana & Katakana</b><small>Mulai dari huruf</small><i>Pelajari →</i></button>
+        <button class="lesson-card green" data-go="grammar"><span>文</span><b>Bunpou Dasar</b><small>Tata bahasa N5</small><i>Pelajari →</i></button>
+      </div>
+      <div class="daily-box"><div><span class="eyebrow">TARGET HARIAN</span><h3>10 kosakata per hari</h3><p>Latihan rutin lebih penting daripada belajar banyak sekaligus.</p></div><div class="target-icon">🎯</div></div>
+    </section>
+
+    <section id="flashcards" class="page">
+      <div class="page-title"><span class="eyebrow">KOSAKATA</span><h1>Flashcard Kotoba</h1><p>Sentuh kartu untuk melihat arti dan bacaannya.</p></div>
+      <div class="filter-row"><select id="levelFilter"><option value="N5">JLPT N5</option><option value="Semua">Semua level</option></select><select id="categoryFilter"><option value="Semua">Semua kategori</option><option value="Kata benda">Kata benda</option><option value="Kata kerja">Kata kerja</option><option value="Kata sifat">Kata sifat</option><option value="Waktu & angka">Waktu & angka</option></select></div>
+      <div class="flash-wrap"><div class="flash-meta"><span id="cardPosition">1 / 1</span><span id="cardLevel" class="pill">N5</span></div>
+        <button id="flashcard" class="flashcard" aria-label="Balik kartu"><span class="card-label" id="cardLabel">KOSAKATA</span><strong id="cardKanji">私</strong><span id="cardFurigana" class="furigana">わたし</span><span id="cardRomaji" class="romaji">watashi</span><span id="cardMeaning" class="meaning hidden">Saya / aku</span><span class="tap-hint" id="tapHint">Ketuk untuk melihat arti</span></button>
+        <div class="card-actions"><button id="speakBtn" class="round-btn" title="Dengarkan">🔊</button><button id="unknownBtn" class="secondary-btn">Belum hafal ×</button><button id="knownBtn" class="primary-btn">Sudah hafal ✓</button></div>
+        <div class="card-actions"><button id="prevCard" class="text-btn">← Sebelumnya</button><button id="nextCard" class="text-btn">Berikutnya →</button></div>
+      </div>
+      <div class="tip"><b>Tips:</b> Coba baca kanjinya dulu, ucapkan dengan suara, baru buka artinya.</div>
+    </section>
+
+    <section id="kanji" class="page">
+      <div class="page-title"><span class="eyebrow">HURUF JEPANG</span><h1>Belajar Kanji</h1><p>Mulai dari kanji dasar yang sering muncul di tingkat N5.</p></div>
+      <div id="kanjiList" class="vocab-list"></div>
+    </section>
+
+    <section id="kana" class="page">
+      <div class="page-title"><span class="eyebrow">DASAR BANGET</span><h1>Hiragana & Katakana</h1><p>Hiragana biasa dipakai untuk kata asli Jepang. Katakana banyak dipakai untuk kata serapan.</p></div>
+      <div class="tabs"><button class="tab active" data-kana="hiragana">Hiragana</button><button class="tab" data-kana="katakana">Katakana</button></div>
+      <div id="kanaGrid" class="kana-grid"></div>
+      <p class="tip">Tekan huruf untuk mendengarkan pelafalannya. Bunyi panjang dan kombinasi seperti きゃ dipelajari setelah mengenal huruf dasar.</p>
+    </section>
+
+    <section id="grammar" class="page">
+      <div class="page-title"><span class="eyebrow">BUNPOU N5</span><h1>Tata Bahasa Dasar</h1><p>Pahami pola kalimat, bukan cuma menghafal rumus.</p></div>
+      <div id="grammarList" class="grammar-list"></div>
+    </section>
+
+    <section id="quiz" class="page">
+      <div class="page-title"><span class="eyebrow">UJI PEMAHAMAN</span><h1>Latihan Quiz</h1><p>10 soal acak dari materi kosakata dasar.</p></div>
+      <div id="quizArea" class="quiz-area"><button id="startQuiz" class="primary-btn wide">Mulai kuis →</button></div>
+    </section>
+
+    <section id="progress" class="page">
+      <div class="page-title"><span class="eyebrow">PERKEMBANGANMU</span><h1>Progress Belajar</h1><p>Semua data tersimpan di perangkat ini.</p></div>
+      <div class="progress-card"><div class="progress-number" id="progressPercent">0%</div><div><b>Penguasaan kosakata</b><p id="progressCaption">Mulai belajar untuk melihat progress.</p></div></div>
+      <div class="progress-bar"><span id="progressBar"></span></div>
+      <div class="stats progress-stats"><article><strong id="pLearned">0</strong><span>Pernah dipelajari</span></article><article><strong id="pKnown">0</strong><span>Dikuasai</span></article><article><strong id="pQuiz">0</strong><span>Quiz benar</span></article></div>
+      <button id="resetProgress" class="danger-btn">Reset seluruh progress</button>
+      <p class="tip">Progress disimpan secara lokal di browser iPhone. Jangan hapus data Safari jika ingin mempertahankannya.</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-item active" data-page="home"><span>⌂</span><small>Beranda</small></button>
+    <button class="nav-item" data-page="flashcards"><span>▤</span><small>Kotoba</small></button>
+    <button class="nav-item" data-page="kanji"><span>漢</span><small>Kanji</small></button>
+    <button class="nav-item" data-page="quiz"><span>✎</span><small>Quiz</small></button>
+    <button class="nav-item" data-page="progress"><span>▥</span><small>Progress</small></button>
+  </nav>
+  <script src="app.js"></script>
+</body>
+</html>

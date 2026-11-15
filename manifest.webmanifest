@@ -1,0 +1,17 @@
+{
+  "name": "Nihongo Master — Belajar Bahasa Jepang",
+  "short_name": "Nihongo",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f5f1",
+  "theme_color": "#b83232",
+  "description": "Belajar bahasa Jepang dari nol dengan kotoba, kanji, bunpou, flashcard dan kuis.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
